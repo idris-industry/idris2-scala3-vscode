@@ -11,7 +11,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.helloWorld",
+		"onCommand:extension.idrisLoad"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -19,7 +20,14 @@
 			{
 				"command": "extension.helloWorld",
 				"title": "Hello World"
+			},
+			{
+				"command": "extension.idrisLoad",
+				"title": "idrisLoad"
 			}
 		]
+	},
+	"dependencies": {
+		"idris-ide-client": "0.1.6"
 	}
 }
