@@ -22,7 +22,6 @@ def activate(context: vscode.ExtensionContext): Unit = {
     """Congrats!  "vscode-scalajs-hello" is now active!"""
   )
 
-  
   def showHello(arg: Any): Unit = {
     vscode.window.showInformationMessage(s"Hello World from scala 3 !!!")
   }
@@ -37,18 +36,19 @@ def activate(context: vscode.ExtensionContext): Unit = {
     (
       "extension.idrisLoad", // exec when run cmd idrisLoad in vscode
       { _ =>
-        client
+        val verF = client
           .version()
           .toFuture
-          .foreach(v =>
-            vscode.window.showInformationMessage("ver:" + v.toString())
-          )
 
-        vscode.window.showInformationMessage(
+        verF.onComplete { r =>
+          vscode.window.showInformationMessage(r.toString())
+        }
+
+        /* vscode.window.showInformationMessage(
           "idrisLoad! version" + client.version().toFuture.value
-        )
+        ) */
 
-        /* vscode.window.visibleTextEditors.foreach { editor =>
+      /* vscode.window.visibleTextEditors.foreach { editor =>
           val lfF = client.loadFile(editor.document.fileName).toFuture
 
           vscode.window.showInformationMessage(
@@ -64,9 +64,10 @@ def activate(context: vscode.ExtensionContext): Unit = {
     )
   )
 
-  js.timers.setTimeout(500) {
+// not work
+  /* js.timers.setTimeout(500) {
     vscode.window.showInformationMessage(cvF.value.toString())
-  }
+  } */
   // context. //
   vscode.window.showInformationMessage("idris ext load finished")
   registerCommandList(context, commands)
