@@ -10,10 +10,6 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [
-		"onCommand:extension.helloWorld",
-		"onCommand:extension.idrisLoad"
-	],
 	"main": "./out/extension",
 	"contributes": {
 		"commands": [

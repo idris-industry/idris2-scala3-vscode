@@ -5,7 +5,7 @@ import org.scalajs.linker.interface.{
   ModuleSplitStyle
 }
 
-val scala3Version = "3.2.2"
+val scala3Version = "3.3.3"
 
 lazy val installDependencies = Def.task[Unit] {
   val base = baseDirectory.value
@@ -43,35 +43,19 @@ lazy val root = project
   .settings(
     scalaVersion := scala3Version,
     moduleName := "vscode-scalajs-hello",
+    libraryDependencies ++= Seq(
+      "org.scala-js" %%% "scala-js-macrotask-executor" % "1.1.1"
+    ),
     scalaJSLinkerConfig ~= {
       _.withModuleKind(ModuleKind.CommonJSModule)
     },
     Compile / fastOptJS / artifactPath := baseDirectory.value / "out" / "extension.js",
     Compile / fullOptJS / artifactPath := baseDirectory.value / "out" / "extension.js",
     Compile / npmDependencies ++= Seq(
-      "@types/vscode" -> "1.78.1",
+      "@types/vscode" -> "1.84.1",
+      "vscode-languageclient" -> "9.0.1",
       "idris-ide-client" -> "0.1.6",
       "@types/node" -> "14.17.2"
     ),
     open := openVSCodeTask.dependsOn(Compile / fastOptJS).value
   )
-
-/*   "dependencies": {
-    "idris-ide-client": "0.1.6"
-  },
-  "devDependencies": {
-    "@types/chai": "4.2.21",
-    "@types/mocha": "8.2.3",
-    "@types/node": "14.17.2",
-    "@types/vscode": "1.44.0",
-    "@typescript-eslint/eslint-plugin": "4.28.2",
-    "@typescript-eslint/parser": "4.28.2",
-    "chai": "4.3.4",
-    "eslint": "7.30.0",
-    "mocha": "9.2.2",
-    "prettier": "2.3.2",
-    "ts-node": "10.1.0",
-    "typescript": "4.3.5",
-    "vsce": "1.100.1"
-  }
- */
