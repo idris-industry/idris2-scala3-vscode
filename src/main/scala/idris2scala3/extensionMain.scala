@@ -13,9 +13,8 @@ import scala.concurrent.Future
 
 object extensionMain {
 
-  /** This method is called when your extension is actived. The extension is
-    * activated the first time one of its features is used (here we only have
-    * commands).
+  /** This method is called when your extension is actived. The extension is activated the first
+    * time one of its features is used (here we only have commands).
     *
     * Exports the function to javascript so that VSCode can load it
     */
@@ -35,9 +34,7 @@ object extensionMain {
         "extension.idrisLoad", // exec when run cmd idrisLoad in vscode
         { _ =>
           val client =
-            IdrisClientUtils.newIdrisClient(x =>
-              vscode.window.showInformationMessage(x)
-            )
+            IdrisClientUtils.newIdrisClient(x => vscode.window.showInformationMessage(x))
 
           var i = 0
           /*         while (!cvF.isCompleted) {
@@ -97,7 +94,9 @@ object extensionMain {
       context.subscriptions.push(
         vscode.commands
           .registerCommand(name, fun)
-          .asInstanceOf[Dispose] // to make the typechecker happy (VSCode has typescript facades nowadays)
+          .asInstanceOf[
+            Dispose
+          ] // to make the typechecker happy (VSCode has typescript facades nowadays)
       )
     }
   }

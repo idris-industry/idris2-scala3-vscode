@@ -1,7 +1,18 @@
 # idris2-scala3-vscode
 idris2 vscode extension written in Scala 3
 
-# VSCode Extension in Scala.js
+# reference
+forked from https://github.com/TheElectronWill/vscode-scalajs-hello (scala 3)
+
+https://github.com/bamboo/idris2-lsp-vscode
+
+https://github.com/meraymond2/idris-vscode
+
+https://github.com/pme123/vscode-scalajs-hello
+
+
+
+## VSCode Extension in Scala.js
 
 This Project is a port of the [helloworld-minimal-sample] to [ScalaJS]. It's an update of [vscode-scalajs-hello](https://github.com/pme123/vscode-scalajs-hello).
 
@@ -86,11 +97,4 @@ vscode.commands.registerCommand(name, fun).asInstanceOf[Dispose]
 ```
 
 You can find more information and tutorials on the [Scala.js website](https://www.scala-js.org/).
-
-# reference
-forked from https://github.com/TheElectronWill/vscode-scalajs-hello (scala 3)
-
-https://github.com/meraymond2/idris-vscode
-
-https://github.com/pme123/vscode-scalajs-hello
 

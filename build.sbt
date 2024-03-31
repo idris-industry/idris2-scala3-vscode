@@ -1,9 +1,5 @@
 import scala.sys.process.*
-import org.scalajs.linker.interface.{
-  ModuleKind,
-  ModuleInitializer,
-  ModuleSplitStyle
-}
+import org.scalajs.linker.interface.{ModuleKind, ModuleInitializer, ModuleSplitStyle}
 
 val scala3Version = "3.3.3"
 
@@ -53,7 +49,7 @@ lazy val root = project
     Compile / fullOptJS / artifactPath := baseDirectory.value / "out" / "extension.js",
     Compile / npmDependencies ++= Seq(
       "@types/vscode" -> "1.84.1",
-      "vscode-languageclient" -> "9.0.1",
+      "vscode-languageclient" -> "7.0.0",
       "idris-ide-client" -> "0.1.6",
       "@types/node" -> "14.17.2"
     ),
