@@ -5,6 +5,7 @@ import typings.node.httpsMod.ServerOptions
 import typings.vscodeLanguageclient.libCommonClientMod.LanguageClientOptions
 import typings.vscodeLanguageclient.mod
 
+// blocked:   unable to find LanguageClient, very messy node modules
 object IdrisLsp {
   /* const client = new LanguageClient(
     'idris2-lsp',
@@ -14,7 +15,7 @@ object IdrisLsp {
   ); */
   ServerOptions
   LanguageClientOptions
-//   unable to find LanguageClient, very messy
+
   new BaseLanguageClient("idris2-lsp", "idris2-lsp", null)
 }
 
