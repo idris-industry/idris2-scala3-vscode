@@ -1,10 +1,12 @@
 package idris2scala3
+
 import typings.vscode
 import typings.vscodeLanguageclient.mod.BaseLanguageClient
-import typings.node.httpsMod.ServerOptions
 import typings.vscodeLanguageclient.libCommonClientMod.LanguageClientOptions
 import typings.vscodeLanguageclient.mod
 
+import idris2scala3.facade.*
+// https://github.com/bamboo/idris2-lsp-vscode/blob/main/src/extension.ts
 // blocked:   unable to find LanguageClient, very messy node modules
 object IdrisLsp {
   /* const client = new LanguageClient(
@@ -13,10 +15,9 @@ object IdrisLsp {
     serverOptions,
     clientOptions
   ); */
-  ServerOptions
-  LanguageClientOptions
-
-  new BaseLanguageClient("idris2-lsp", "idris2-lsp", null)
+  def getLanguageClient() = {
+    new LanguageClient("idris2-lsp", "idris2-lsp", null, null)
+  }
 }
 
 /* import { spawn } from 'child_process';

@@ -23,13 +23,9 @@ object extensionMain {
     vscode.window.showInformationMessage(
       """Congrats!  "vscode-scalajs-hello" is now active!"""
     )
-
-    def showHello(arg: Any): Unit = {
-      vscode.window.showInformationMessage(s"Hello World from scala 3 !!!")
-    }
+    IdrisLsp.getLanguageClient()
 
     val commands: Seq[(String, Any => Any)] = Seq(
-      ("extension.helloWorld", showHello),
       (
         "extension.idrisLoad", // exec when run cmd idrisLoad in vscode
         { _ =>
